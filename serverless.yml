@@ -1,0 +1,19 @@
+service: test-serverless-project
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: dev
+  region: us-east-1
+
+
+functions:
+  hello:
+    handler: src/handler.hello
+    description: Submit candidate information and starts interview process.
+    events:
+      - http: 
+          path: hello
+          method: get
